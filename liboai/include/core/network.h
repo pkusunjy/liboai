@@ -150,7 +150,7 @@ namespace liboai {
 				return false;
 			}
 			
-			const std::string openai_root_ = "https://api.openai.com/v1";
+			const std::string openai_root_ = "https://key.wenwen-ai.com/v1";
 			const std::string azure_root_ = ".openai.azure.com/openai";
 
 		private:
