@@ -93,6 +93,20 @@ namespace liboai {
 			LIBOAI_EXPORT bool AddUserData(std::string_view data) & noexcept(false);
 
 			/*
+				@brief Adds assistant input to the conversation.
+					This method adds user input to the conversation.
+					The user input is the user's input - such as a question
+					or a command.
+
+					If using a system prompt, the user input should be
+					provided after the system prompt is set - i.e. after
+					SetSystemData() is called.
+
+					@param *data      The user input to add.
+			*/
+			LIBOAI_EXPORT bool AddAssistantData(std::string_view data) & noexcept(false);
+
+			/*
 				@brief Removes the last added user data.
 			*/
 			LIBOAI_EXPORT bool PopUserData() & noexcept(false);

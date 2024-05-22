@@ -98,6 +98,15 @@ bool liboai::Conversation::AddUserData(std::string_view data) & noexcept(false) 
 	return false; // data is empty
 }
 
+bool liboai::Conversation::AddAssistantData(std::string_view data) & noexcept(false) {
+	// if data provided is non-empty
+	if (!data.empty()) {
+		this->_conversation["messages"].push_back({ { "role", "assistant" }, {"content", data} });
+		return true; // user data added successfully
+	}
+	return false; // data is empty
+}
+
 bool liboai::Conversation::PopUserData() & noexcept(false) {
 	// if conversation is not empty
 	if (!this->_conversation["messages"].empty()) {
