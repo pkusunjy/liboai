@@ -1,0 +1,17 @@
+package(
+    default_visibility = ['//visibility:public'],
+)
+
+licenses(["notice"])
+
+cc_binary(
+    name = "create_speech",
+    srcs = ["create_speech.cpp"],
+    deps = ["//liboai:oai"],
+)
+
+cc_binary(
+    name = "create_speech_async",
+    srcs = ["create_speech_async.cpp"],
+    deps = ["//liboai:oai"],
+)
