@@ -2,8 +2,6 @@ package(
     default_visibility = ['//visibility:public'],
 )
 
-licenses(["notice"])
-
 cc_binary(
     name = "create_speech",
     srcs = ["create_speech.cpp"],
