@@ -1,2 +1,5 @@
+.vscode
+bazel-*
 build
+MODULE.bazel.lock
 TestApp
