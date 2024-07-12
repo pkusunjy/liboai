@@ -2,5 +2,5 @@ module(
     name = "oai",
 )
 
-bazel_dep(name = "curl", version = "8.7.1")
+bazel_dep(name = "curl", version = "8.8.0.bcr.1")
 bazel_dep(name = "nlohmann_json", version = "3.11.3")
