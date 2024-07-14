@@ -152,7 +152,7 @@ namespace liboai {
 				return false;
 			}
 			
-			const std::string openai_root_ = "https://1255586470-6p2g25xktr-usw.scf.tencentcs.com";
+			const std::string openai_root_ = "https://1255586470-6p2g25xktr-usw.scf.tencentcs.com/v1";
 			const std::string azure_root_ = ".openai.azure.com/openai";
 
 		private:

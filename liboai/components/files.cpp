@@ -139,7 +139,7 @@ liboai::FutureResponse liboai::Files::retrieve_async(const std::string& file_id)
 bool liboai::Files::download(const std::string& file_id, const std::string& save_to) const & noexcept(false) {
 	return Network::Download(
 		save_to,
-		("https://1255586470-6p2g25xktr-usw.scf.tencentcs.com/files/" + file_id + "/content"),
+		("https://1255586470-6p2g25xktr-usw.scf.tencentcs.com/v1/files/" + file_id + "/content"),
 		this->auth_.GetAuthorizationHeaders()
 	);
 }
@@ -148,7 +148,7 @@ std::future<bool> liboai::Files::download_async(const std::string& file_id, cons
 	return std::async(
 		std::launch::async, &liboai::Network::Download,
 		save_to,
-		("https://1255586470-6p2g25xktr-usw.scf.tencentcs.com/files/" + file_id + "/content"),
+		("https://1255586470-6p2g25xktr-usw.scf.tencentcs.com/v1/files/" + file_id + "/content"),
 		this->auth_.GetAuthorizationHeaders()
 	);
 }
