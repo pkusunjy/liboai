@@ -152,7 +152,7 @@ namespace liboai {
 				return false;
 			}
 			
-			const std::string openai_root_ = "https://mikiai-default-uvsfgmsemk.ap-southeast-1.fcapp.run";
+			const std::string openai_root_ = "https://1255586470-6p2g25xktr-usw.scf.tencentcs.com";
 			const std::string azure_root_ = ".openai.azure.com/openai";
 
 		private:
