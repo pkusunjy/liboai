@@ -25,6 +25,9 @@ namespace liboai {
 			Audio& operator=(const Audio&) = delete;
 			Audio& operator=(Audio&&) = delete;
 
+			void UpdateOpenAIRoot(const std::string& new_openai_root) {
+				Network::UpdateOpenAIRoot(new_openai_root);
+			}
 			/*
 				@brief Transcribes audio into the input language.
 
