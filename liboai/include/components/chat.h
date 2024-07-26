@@ -812,6 +812,10 @@ namespace liboai {
 			NON_MOVABLE(ChatCompletion)
 			~ChatCompletion() = default;
 
+			void UpdateOpenAIRoot(const std::string& new_openai_root) {
+				Network::UpdateOpenAIRoot(new_openai_root);
+			}
+
 			using ChatStreamCallback = std::function<bool(std::string, intptr_t, Conversation&)>;
 
 			/*

@@ -137,18 +137,20 @@ liboai::FutureResponse liboai::Files::retrieve_async(const std::string& file_id)
 }
 
 bool liboai::Files::download(const std::string& file_id, const std::string& save_to) const & noexcept(false) {
+	std::string from = openai_root_ + "/files/" + file_id + "/content";
 	return Network::Download(
 		save_to,
-		("https://dashscope.aliyuncs.com/compatible-mode/v1/files/" + file_id + "/content"),
+		from,
 		this->auth_.GetAuthorizationHeaders()
 	);
 }
 
 std::future<bool> liboai::Files::download_async(const std::string& file_id, const std::string& save_to) const & noexcept(false) {
+	std::string from = openai_root_ + "/files/" + file_id + "/content";
 	return std::async(
 		std::launch::async, &liboai::Network::Download,
 		save_to,
-		("https://dashscope.aliyuncs.com/compatible-mode/v1/files/" + file_id + "/content"),
+		from,
 		this->auth_.GetAuthorizationHeaders()
 	);
 }

@@ -234,9 +234,13 @@ namespace liboai {
 				}
 				return false;
 			}
+
+			void UpdateOpenAIRoot(const std::string& new_openai_root) {
+				openai_root_.assign(new_openai_root);
+			}
 			
-			const std::string openai_root_ = "https://dashscope.aliyuncs.com/compatible-mode/v1";
-			const std::string azure_root_ = ".openai.azure.com/openai";
+			std::string openai_root_ = "https://dashscope.aliyuncs.com/compatible-mode/v1";
+			std::string azure_root_ = ".openai.azure.com/openai";
 
 		private:
 			template <class... T> struct MethodSchema {
