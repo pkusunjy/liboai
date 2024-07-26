@@ -28,6 +28,9 @@ namespace liboai {
 			void UpdateOpenAIRoot(const std::string& new_openai_root) {
 				Network::UpdateOpenAIRoot(new_openai_root);
 			}
+			void SetAuth(const Authorization& auth) {
+				auth_ = auth;
+			}
 			/*
 				@brief Transcribes audio into the input language.
 
@@ -197,6 +200,7 @@ namespace liboai {
 			) const& noexcept(false);
 
 		private:
-			Authorization& auth_ = Authorization::Authorizer();
+			// Authorization& auth_ = Authorization::Authorizer();
+			Authorization auth_;
 	};
 }

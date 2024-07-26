@@ -22,8 +22,8 @@ namespace liboai {
 	class Authorization final {
 		public: // cons/des, operator deletions
 			Authorization() = default;
-			NON_COPYABLE(Authorization)
-			NON_MOVABLE(Authorization)
+			// NON_COPYABLE(Authorization)
+			// NON_MOVABLE(Authorization)
 			~Authorization();
 
 		public:	// member methods

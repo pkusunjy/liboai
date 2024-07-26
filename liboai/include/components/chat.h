@@ -815,6 +815,9 @@ namespace liboai {
 			void UpdateOpenAIRoot(const std::string& new_openai_root) {
 				Network::UpdateOpenAIRoot(new_openai_root);
 			}
+			void SetAuth(const Authorization& auth) {
+				auth_ = auth;
+			}
 
 			using ChatStreamCallback = std::function<bool(std::string, intptr_t, Conversation&)>;
 
@@ -941,7 +944,8 @@ namespace liboai {
 			) const & noexcept(false);
 			
 		private:
-			Authorization& auth_ = Authorization::Authorizer();
+			// Authorization& auth_ = Authorization::Authorizer();
+			Authorization auth_;
 			using StrippedStreamCallback = std::function<bool(std::string, intptr_t)>;
 	};
 }
