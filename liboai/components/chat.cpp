@@ -1,3 +1,6 @@
+#include <ctime>
+#include <random>
+
 #include "../include/components/chat.h"
 
 liboai::Conversation::Conversation() {
@@ -602,6 +605,11 @@ liboai::Response liboai::ChatCompletion::create(const std::string& model, Conver
 	jcon.push_back("logit_bias", std::move(logit_bias));
 	jcon.push_back("user", std::move(user));
 
+	// generate seed
+	std::mt19937 rng(static_cast<uint32_t>(std::time(nullptr)));
+	std::uniform_int_distribution<int32_t> dist(1, 10000);
+	jcon.push_back("seed", dist(rng));
+
 	if (function_call) {
 		if (function_call.value() == "none" || function_call.value() == "auto") {
 			nlohmann::json j; j["function_call"] = function_call.value();
@@ -659,6 +667,11 @@ liboai::FutureResponse liboai::ChatCompletion::create_async(const std::string& m
 	jcon.push_back("frequency_penalty", std::move(frequency_penalty));
 	jcon.push_back("logit_bias", std::move(logit_bias));
 	jcon.push_back("user", std::move(user));
+
+	// generate seed
+	std::mt19937 rng(static_cast<uint32_t>(std::time(nullptr)));
+	std::uniform_int_distribution<int32_t> dist(1, 10000);
+	jcon.push_back("seed", dist(rng));
 
 	if (function_call) {
 		if (function_call.value() == "none" || function_call.value() == "auto") {
