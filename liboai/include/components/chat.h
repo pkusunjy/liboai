@@ -592,6 +592,12 @@ namespace liboai {
 			LIBOAI_EXPORT bool PopUserData() & noexcept(false);
 
 			/*
+				@brief Adds response format
+			*/
+			[[nodiscard]]
+			LIBOAI_EXPORT bool AddResponseFormat(nlohmann::json j) & noexcept(false);
+
+			/*
 				@brief Gets the last response from the assistant.
 					This method gets the last response from the assistant.
 					The response is the assistant's response to the user's

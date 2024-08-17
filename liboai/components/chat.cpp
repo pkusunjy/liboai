@@ -142,6 +142,11 @@ bool liboai::Conversation::PopUserData() & noexcept(false) {
 	return false; // conversation is empty
 }
 
+bool liboai::Conversation::AddResponseFormat(nlohmann::json j) & noexcept(false) {
+	this->_conversation["response_format"] = j;
+	return true;
+}
+
 std::string liboai::Conversation::GetLastResponse() const & noexcept {
 	// if conversation is not empty
 	if (!this->_conversation["messages"].empty()) {
@@ -638,6 +643,10 @@ liboai::Response liboai::ChatCompletion::create(const std::string& model, Conver
 	if (conversation.HasFunctions()) {
 		jcon.push_back("functions", conversation.GetFunctionsJSON()["functions"]);
 	}
+	
+	if (conversation.GetJSON().contains("response_format")) {
+		jcon.push_back("response_format", conversation.GetJSON()["response_format"]);
+	}
 
 	Response res;
 	res = this->Request(
@@ -700,6 +709,10 @@ liboai::FutureResponse liboai::ChatCompletion::create_async(const std::string& m
 
 	if (conversation.HasFunctions()) {
 		jcon.push_back("functions", conversation.GetFunctionsJSON()["functions"]);
+	}
+
+	if (conversation.GetJSON().contains("response_format")) {
+		jcon.push_back("response_format", conversation.GetJSON()["response_format"]);
 	}
 
 	auto _fn = [this](
